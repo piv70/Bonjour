@@ -1,0 +1,29 @@
+/ if_table_block
+%section.card-content.scrollspy{'id':'%group_key%-1'}
+    .section.table{'id':'section-%group_key%-1'}
+        .section-header
+            .card-title
+                Таблица группы
+                %span.fullscreen-on{'data-target':'section-%group_key%-1'}
+                - if file == 'index'
+                    / group_last_checks_block table_selector
+                - else
+                    / group_and_sub_last_checks_block table_selector
+                %span.last-checks-on{'id':'last-checks-%group_key%-1'}
+                    %i.material-icons.tooltipped{'data':{'target':'section-%group_key%-1',
+                        'key':'%group_key%-1',
+                        'tooltip':'Последние проверки',
+                        'position':'left'}} history
+                - if file == 'index'
+                    / /group_last_checks_block table_selector
+                - else
+                    / /group_and_sub_last_checks_block table_selector
+        .section-content
+            - if file == 'index'
+                = Haml::Engine.new(File.read('includes/blocks/sectionTable/standardView.haml')).render
+            - else
+                = Haml::Engine.new(File.read('includes/blocks/sectionTable/summaryView.haml')).render
+            = Haml::Engine.new(File.read('includes/blocks/sectionTable/groupLastChecks.haml')).render(Object.new,
+                :file => file)
+.divider
+/ /if_table_block

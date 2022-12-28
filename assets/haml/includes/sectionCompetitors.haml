@@ -1,0 +1,29 @@
+/ if_competitors_block
+%section.card-content.scrollspy{'id':'%group_key%-5'}
+    .section.competitors{'id':'section-%group_key%-5'}
+        .section-header
+            .card-title
+                Конкуренты
+                %span.fullscreen-on{'data-target':'section-%group_key%-5'}
+                - if file == 'index'
+                    / group_last_checks_block competitors_selector
+                - else
+                    / group_and_sub_last_checks_block competitors_selector
+                %span.last-checks-on{'id':'last-checks-%group_key%-5'}
+                    %i.material-icons.tooltipped{'data':{'target':'section-%group_key%-5',
+                        'key':'%group_key%-5',
+                        'tooltip':'Последние проверки',
+                        'position':'left'}} history
+                - if file == 'index'
+                    / /group_last_checks_block competitors_selector
+                - else
+                    / /group_and_sub_last_checks_block competitors_selector
+        .section-content
+            - if file == 'index'
+                = Haml::Engine.new(File.read('includes/blocks/sectionCompetitors/standardView.haml')).render
+            - else
+                = Haml::Engine.new(File.read('includes/blocks/sectionCompetitors/summaryView.haml')).render
+            = Haml::Engine.new(File.read('includes/blocks/sectionCompetitors/groupLastChecks.haml')).render(Object.new,
+                :file => file)
+.divider
+/ /if_competitors_block

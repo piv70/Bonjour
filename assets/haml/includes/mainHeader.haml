@@ -1,0 +1,38 @@
+.main-header
+    %ul.breadcrumbs
+        / parent_groups_repeat
+        %li
+            %a.font-slab{'href':'%parent_group_relative_link%index.html'}
+                \%parent_group_name%
+        / /parent_groups_repeat
+        %li
+            %span.font-slab %group_name%
+    %h2.font-slab{'class':'subgroups-%group_subgroups_count%'}
+        %span.left.dropdown-trigger{'data-target':'dropdown-menu'}
+            / if_all_subgroups selector
+            %i.left.material-icons menu
+            / /if_all_subgroups selector
+            Группа: %group_name%
+    - if file == 'index'
+        / standard_view_block datetime
+    - else
+        / summary_view_block datetime
+    .datetime.font-slab
+        / if_all_subgroups datetime
+        %span{'class':'subgroups-%group_subgroups_count%'}
+        / /if_all_subgroups datetime
+        На дату:
+        %b %datetime%.
+        Сравнение с:
+        %b %datetime_cmp%.
+    - if file == 'index'
+        / /standard_view_block datetime
+    - else
+        / /summary_view_block datetime
+    %ul#dropdown-menu.dropdown-content
+        / if_all_subgroups menu
+        / subgroups_repeat
+        %li
+            %a{'href':'%subgroup_relative_link%index.html'} %subgroup_name%
+        / /subgroups_repeat
+        / /if_all_subgroups menu

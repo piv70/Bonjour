@@ -1,0 +1,13 @@
+/ standard_view_block tops
+.main-table.standard-table
+    / tops_block
+    %table.highlight.responsive-table
+        %thead
+            %tr
+                %th Топ
+                / tops_headers_repeat
+                %th %header_name%
+                / /tops_headers_repeat
+        = Haml::Engine.new(File.read('includes/blocks/sectionTops/tbody.haml')).render
+    / /tops_block
+/ /standard_view_block tops

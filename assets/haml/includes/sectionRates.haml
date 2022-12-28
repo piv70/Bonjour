@@ -1,0 +1,42 @@
+/ if_rates_block
+%section.card-content.scrollspy{'id':'%group_key%-4'}
+    .section.rates{'id':'section-%group_key%-4'}
+        .section-header
+            .card-title
+                Показатели
+                %span.fullscreen-on{'data-target':'section-%group_key%-4'}
+                - if file == 'index'
+                    / group_last_checks_block rates_selector
+                - else
+                    / group_and_sub_last_checks_block rates_selector
+                %span.last-checks-on{'id':'last-checks-%group_key%-4'}
+                    %i.material-icons.tooltipped{'data':{'target':'section-%group_key%-4',
+                        'key':'%group_key%-4',
+                        'tooltip':'Последние проверки',
+                        'position':'left'}} history
+                - if file == 'index'
+                    / /group_last_checks_block rates_selector
+                    / group_diagrams_block rates_selector
+                - else
+                    / /group_and_sub_last_checks_block rates_selector
+                    / group_and_sub_diagrams_block rates_selector
+                %span.diagrams-on{'id':'diagrams-%group_key%-4'}
+                    %i.material-icons.tooltipped{'data':{'target':'section-%group_key%-4',
+                        'key':'%group_key%-4',
+                        'tooltip':'Графики',
+                        'position':'left'}} show_chart
+                - if file == 'index'
+                    / /group_diagrams_block rates_selector
+                - else
+                    / /group_and_sub_diagrams_block rates_selector
+        .section-content
+            - if file == 'index'
+                = Haml::Engine.new(File.read('includes/blocks/sectionRates/standardView.haml')).render
+            - else
+                = Haml::Engine.new(File.read('includes/blocks/sectionRates/summaryView.haml')).render
+            = Haml::Engine.new(File.read('includes/blocks/sectionRates/groupLastChecks.haml')).render(Object.new,
+                :file => file)
+            = Haml::Engine.new(File.read('includes/blocks/sectionRates/groupDiagrams.haml')).render(Object.new,
+                :file => file)
+.divider
+/ /if_rates_block

@@ -1,0 +1,21 @@
+- if file == 'index'
+    / group_diagrams_block tops
+- else
+    / group_and_sub_diagrams_block tops
+.diagrams.hide
+    .row
+        / se_elements_repeat tops
+        -# .section-subheader.font-slab %se_element_id%
+        / tops_graph_block
+        .col.s12.l4
+            .card.hoverable
+                .card-image
+                    %img.responsive-img.materialboxed{'src':'img/%filename%', 'data':{'caption':'%se_element_id%'}}
+                .card-content
+                    %p.font-slab %se_element_id%
+        / /tops_graph_block
+        / /se_elements_repeat tops
+- if file == 'index'
+    / /group_diagrams_block tops
+- else
+    / /group_and_sub_diagrams_block tops

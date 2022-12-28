@@ -1,0 +1,29 @@
+/ if_relevant_pages_block
+%section.card-content.scrollspy{'id':'%group_key%-3'}
+    .section.relevant-pages{'id':'section-%group_key%-3'}
+        .section-header
+            .card-title
+                Релевантные страницы
+                %span.fullscreen-on{'data-target':'section-%group_key%-3'}
+                - if file == 'index'
+                    / group_last_checks_block relevant_pages_selector
+                - else
+                    / group_and_sub_last_checks_block relevant_pages_selector
+                %span.last-checks-on{'id':'last-checks-%group_key%-3'}
+                    %i.material-icons.tooltipped{'data':{'target':'section-%group_key%-3',
+                        'key':'%group_key%-3',
+                        'tooltip':'Последние проверки',
+                        'position':'left'}} history
+                - if file == 'index'
+                    / /group_last_checks_block relevant_pages_selector
+                - else
+                    / /group_and_sub_last_checks_block relevant_pages_selector
+        .section-content
+            - if file == 'index'
+                = Haml::Engine.new(File.read('includes/blocks/sectionRelevantPages/standardView.haml')).render
+            - else
+                = Haml::Engine.new(File.read('includes/blocks/sectionRelevantPages/summaryView.haml')).render
+            = Haml::Engine.new(File.read('includes/blocks/sectionRelevantPages/groupLastChecks.haml')).render(Object.new,
+                :file => file)
+.divider
+/ /if_relevant_pages_block

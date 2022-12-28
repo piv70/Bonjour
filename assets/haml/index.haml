@@ -1,0 +1,37 @@
+!!!5
+%html
+    = Haml::Engine.new(File.read('includes/head.haml')).render
+    %body#body
+        .container
+            %header.header
+                %b Комплексный отчет
+                %h1.font-slab
+                    Для проекта:
+                    %b &laquo;%project_name%&raquo;
+            .divider
+            %main.main
+                = Haml::Engine.new(File.read('includes/mainHeader.haml')).render(Object.new, :file => 'index')
+                #row.row
+                    = Haml::Engine.new(File.read('includes/aside.haml')).render(Object.new, :file => 'index')
+                    %article#article.article.col.s12.l8.xl9
+                        .card.z-depth-2
+                            = Haml::Engine.new(File.read('includes/sectionTable.haml')).render(Object.new,
+                                :file => 'index')
+                            = Haml::Engine.new(File.read('includes/sectionTops.haml')).render(Object.new,
+                                :file => 'index')
+                            = Haml::Engine.new(File.read('includes/sectionRelevantPages.haml')).render(Object.new,
+                                :file => 'index')
+                            = Haml::Engine.new(File.read('includes/sectionRates.haml')).render(Object.new,
+                                :file => 'index')
+                            = Haml::Engine.new(File.read('includes/sectionCompetitors.haml')).render(Object.new,
+                                :file => 'index')
+                            = Haml::Engine.new(File.read('includes/sectionSettings.haml')).render
+            .divider
+            %footer.footer
+                %a.font-slab{'href':'https://topsite-program.ru', 'target':'_blank'}
+                    Отчет сгенерирован программой проверки позиций
+                    %b TopSite
+        %script{'src':'%root_group_relative_link%assets/js/jquery-3.3.1.min.js', 'type':'text/javascript'}
+        %script{'src':'%root_group_relative_link%assets/js/materialize/materialize.min.js',
+            'type':'text/javascript'}
+        %script{'src':'%root_group_relative_link%assets/js/report.min.js', 'type':'text/javascript'}

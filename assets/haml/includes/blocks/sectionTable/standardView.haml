@@ -1,0 +1,19 @@
+/ standard_view_block table
+.main-table.standard-table
+    / table_block
+    %p.after-card-title.font-slab
+        Таблица содержит
+        %b %table_size% строк
+        и
+        %b %table_headers% столбцов,
+        из них показано
+        %b %table_output_size% строк.
+    %table.highlight.responsive-table
+        %thead
+            %tr
+                / table_headers_repeat
+                %th %header_name%
+                / /table_headers_repeat
+        = Haml::Engine.new(File.read('includes/blocks/sectionTable/tbody.haml')).render
+    / /table_block
+/ /standard_view_block table

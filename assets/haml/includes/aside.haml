@@ -1,0 +1,39 @@
+%aside#aside.aside.hide-on-med-and-down.col.s12.l4.xl3
+    .pushpin-nav.section{'data-target':'row'}
+        .subheader.font-slab Вид
+        %ul
+            %li
+                %a.truncate.waves-effect{'class': file == 'index' ? 'active' : '',
+                    'href':'index.html'} Только группа
+            %li{'class': 'subgroups-%group_subgroups_count%'}
+                %a.truncate.waves-effect{'class': file == 'summary' ? 'active' : '',
+                    'href':'summary.html'} Группа и подгруппы
+        .subheader.font-slab Разделы
+        %ul
+            / if_table_block link
+            %li
+                %a.truncate.waves-effect{'href':'#%group_key%-1'} Таблица группы
+            / /if_table_block link
+            / if_tops_block link
+            %li
+                %a.truncate.waves-effect{'href':'#%group_key%-2'} Топы
+            / /if_tops_block link
+            / if_relevant_pages_block link
+            %li
+                %a.truncate.waves-effect{'href':'#%group_key%-3'} Релевантные страницы
+            / /if_relevant_pages_block link
+            / if_rates_block link
+            %li
+                %a.truncate.waves-effect{'href':'#%group_key%-4'} Показатели
+            / /if_rates_block link
+            / if_competitors_block link
+            %li
+                %a.truncate.waves-effect{'href':'#%group_key%-5'} Конкуренты
+            / /if_competitors_block link
+            - if file == 'index'
+                / standard_view_block settings-link
+                / if_settings_block link
+                %li
+                    %a.truncate.waves-effect{'href':'#%group_key%-6'} Настройки группы
+                / /if_settings_block link
+                / /standard_view_block settings-link

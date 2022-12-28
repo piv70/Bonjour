@@ -1,0 +1,17 @@
+%tbody
+    / competitors_rows_repeat
+    %tr
+        / competitors_row_cells_repeat
+        %td
+            %span{'class':'%my_domain_class%'}
+                %b %domain%
+            %span{'class':'%pos_dynamics_class%'} %pos_dynamics%
+            %span.badge %domain_percent%
+            .truncate-wrapper.middle
+                / competitor_domain_urls_repeat
+                .truncate.tooltipped{'data-tooltip':'%url%'}
+                    %span.badge %url_percent%
+                    %a{'href':'%url%'} %relative_url%
+                / /competitor_domain_urls_repeat
+        / /competitors_row_cells_repeat
+    / /competitors_rows_repeat

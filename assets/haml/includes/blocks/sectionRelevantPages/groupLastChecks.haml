@@ -1,0 +1,26 @@
+- if file == 'index'
+    / group_last_checks_block relevant_pages
+- else
+    / group_and_sub_last_checks_block relevant_pages
+.last-checks-table.hide
+    %table.highlight.responsive-table
+        / se_elements_repeat relevant_pages
+        / relevant_pages_block
+        %thead
+            %tr
+                %th.font-slab{'colspan':'%relevant_pages_headers%'}
+                    %b %se_element_id%:
+                    таблица содержит
+                    %b %relevant_pages_size% строк.
+            %tr
+                / relevant_pages_headers_repeat
+                %th %header_name%
+                / /relevant_pages_headers_repeat
+                %th Релевантная страница
+        = Haml::Engine.new(File.read('includes/blocks/sectionRelevantPages/tbody.haml')).render
+        / /relevant_pages_block
+        / /se_elements_repeat relevant_pages
+- if file == 'index'
+    / /group_last_checks_block relevant_pages
+- else
+    / /group_and_sub_last_checks_block relevant_pages

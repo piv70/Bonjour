@@ -1,0 +1,121 @@
+%tbody
+    / table_rows_repeat
+    %tr
+        / table_row_cells_repeat
+        %td
+            / table_cell_keyword_switch
+            %span{'class':'keyword','data-color':'%rgbcolor%'}
+                \%keyword%
+            / /table_cell_keyword_switch
+
+            / table_cell_engine_switch
+            %span.error %error_text%
+            / table_header_part_id_1_switch
+            \%checking_state_text%
+            / /table_header_part_id_1_switch
+            / table_header_part_id_3_switch
+            \%time%
+            / /table_header_part_id_3_switch
+            / /table_cell_engine_switch
+
+            / table_cell_wordstat_switch
+            \%frequency%
+            %span{'class':'%frequency_dynamics_class%'}
+                \%frequency_dynamics%
+            / /table_cell_wordstat_switch
+
+            / table_cell_searchengine_switch
+            / table_header_part_id_32_switch
+            %span{'class':'%snippet_title_dynamics_class%'}
+                \%snippet_title%
+            / /table_header_part_id_32_switch
+            / table_header_part_id_33_switch
+            %span{'class':'%snippet_description_dynamics_class%'}
+                \%snippet_description%
+            / /table_header_part_id_33_switch
+            / table_header_part_id_34_switch
+            %span.truncate-wrapper.short
+                %span.truncate.tooltipped{'data-tooltip':'%relevant_page%'}
+                    %span{'class':'%relevant_page_dynamics_class% %relevant_page_target_class%'}
+                        \%relevant_page%
+            / /table_header_part_id_34_switch
+            / table_header_part_id_35_switch
+            %span{'class':'%position_top_class%'}
+                \%position%
+            %span{'class':'%position_dynamics_class%'}
+                \%position_dynamics%
+            / /table_header_part_id_35_switch
+            / table_header_part_id_36_switch
+            %span{'class':'%infected_dynamics_class%'}
+                \%infected%
+            / /table_header_part_id_36_switch
+            / table_header_part_id_37_switch
+            \%cluster%
+            / /table_header_part_id_37_switch
+            / /table_cell_searchengine_switch
+
+            / table_cell_yandex_switch
+            / table_header_part_id_0_switch
+            %span.cluster %cluster%
+            %span.direct %yandex_direct_pos%
+            %span.rpcheck
+                %span{'class':'%relevant_page_target_class%'} ✔
+            %span{'class':'%position_top_class%'} %position%
+            %span{'class':'%position_dynamics_class%'}
+                \%position_dynamics%
+            / table_cell_searchengine_graph_block
+            %i.left.open-materialbox.material-icons{'data-box':'%image_id%'} show_chart
+            .img-wrapper
+                %img{'id':'%image_id%', 'class':'materialboxed hide',
+                    'width':'24', 'src':'img/%filename%'}
+            / /table_cell_searchengine_graph_block
+            / /table_header_part_id_0_switch
+            / table_header_part_id_64_switch
+            %span{'class':'%from_xml_dynamics_class%'}
+                \%from_xml%
+            / /table_header_part_id_64_switch
+            / table_header_part_id_65_switch
+            %span{'class':'%yandex_direct_position_dynamics_class%'}
+                \%yandex_direct_position%
+            / /table_header_part_id_65_switch
+            / /table_cell_yandex_switch
+
+            / table_cell_google_switch
+            / table_header_part_id_0_switch
+            %span.cluster %cluster%
+            %span.gads %google_ads_pos%
+            %span.rpcheck
+                %span{'class':'%relevant_page_target_class%'} ✔
+            %span{'class':'%position_top_class%'} %position%
+            %span{'class':'%position_dynamics_class%'}
+                \%position_dynamics%
+            / table_cell_searchengine_graph_block
+            %i.left.open-materialbox.material-icons{'data-box':'%image_id%'} show_chart
+            .img-wrapper
+                %img{'id':'%image_id%', 'class':'materialboxed hide',
+                    'width':'24', 'src':'img/%filename%'}
+            / /table_cell_searchengine_graph_block
+            / /table_header_part_id_0_switch
+            / table_header_part_id_64_switch
+            %span{'class':'%google_ads_position_dynamics_class%'}
+                \%google_ads_position%
+            / /table_header_part_id_64_switch
+            / /table_cell_google_switch
+
+            / table_cell_mail_switch
+            / table_header_part_id_0_switch
+            %span.rpcheck
+                %span{'class':'%relevant_page_target_class%'} ✔
+            %span{'class':'%position_top_class%'} %position%
+            %span{'class':'%position_dynamics_class%'}
+                \%position_dynamics%
+            / table_cell_searchengine_graph_block
+            %i.left.open-materialbox.material-icons{'data-box':'%image_id%'} show_chart
+            .img-wrapper
+                %img{'id':'%image_id%', 'class':'materialboxed hide',
+                    'width':'24', 'src':'img/%filename%'}
+            / /table_cell_searchengine_graph_block
+            / /table_header_part_id_0_switch
+            / /table_cell_mail_switch
+        / /table_row_cells_repeat
+    / /table_rows_repeat

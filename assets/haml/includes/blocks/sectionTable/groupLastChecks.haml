@@ -1,0 +1,29 @@
+- if file == 'index'
+    / group_last_checks_block table
+- else
+    / group_and_sub_last_checks_block table
+.last-checks-table.hide
+    %table.highlight.responsive-table
+        / se_elements_repeat table
+        / table_block
+        %thead
+            %tr
+                %th.font-slab{'colspan':'%table_headers%'}
+                    %b %se_element_id%:
+                    таблица содержит
+                    %b %table_size% строк
+                    и
+                    %b %table_headers% столбцов,
+                    из них показано
+                    %b %table_output_size% строк.
+            %tr
+                / table_headers_repeat
+                %th %header_name%
+                / /table_headers_repeat
+        = Haml::Engine.new(File.read('includes/blocks/sectionTable/tbody.haml')).render
+        / /table_block
+        / /se_elements_repeat table
+- if file == 'index'
+    / /group_last_checks_block table
+- else
+    / /group_and_sub_last_checks_block table

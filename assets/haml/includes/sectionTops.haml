@@ -1,0 +1,42 @@
+/ if_tops_block
+%section.card-content.scrollspy{'id':'%group_key%-2'}
+    .section.tops{'id':'section-%group_key%-2'}
+        .section-header
+            .card-title
+                Топы
+                %span.fullscreen-on{'data-target':'section-%group_key%-2'}
+                - if file == 'index'
+                    / group_last_checks_block tops_selector
+                - else
+                    / group_and_sub_last_checks_block tops_selector
+                %span.last-checks-on{'id':'last-checks-%group_key%-2'}
+                    %i.material-icons.tooltipped{'data':{'target':'section-%group_key%-2',
+                        'key':'%group_key%-2',
+                        'tooltip':'Последние проверки',
+                        'position':'left'}} history
+                - if file == 'index'
+                    / /group_last_checks_block tops_selector
+                    / group_diagrams_block tops_selector
+                - else
+                    / /group_and_sub_last_checks_block tops_selector
+                    / group_and_sub_diagrams_block tops_selector
+                %span.diagrams-on{'id':'diagrams-%group_key%-2'}
+                    %i.material-icons.tooltipped{'data':{'target':'section-%group_key%-2',
+                        'key':'%group_key%-2',
+                        'tooltip':'Графики',
+                        'position':'left'}} show_chart
+                - if file == 'index'
+                    / /group_diagrams_block tops_selector
+                - else
+                    / /group_and_sub_diagrams_block tops_selector
+        .section-content
+            - if file == 'index'
+                = Haml::Engine.new(File.read('includes/blocks/sectionTops/standardView.haml')).render
+            - else
+                = Haml::Engine.new(File.read('includes/blocks/sectionTops/summaryView.haml')).render
+            = Haml::Engine.new(File.read('includes/blocks/sectionTops/groupLastChecks.haml')).render(Object.new,
+                :file => file)
+            = Haml::Engine.new(File.read('includes/blocks/sectionTops/groupDiagrams.haml')).render(Object.new,
+                :file => file)
+.divider
+/ /if_tops_block

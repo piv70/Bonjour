@@ -1,0 +1,82 @@
+/ standard_view_block settings
+/ if_settings_block
+%section.card-content.scrollspy{'id':'%group_key%-6'}
+    .section.settings{'id':'section-%group_key%-6'}
+        .section-header
+            .card-title
+                Настройки группы
+                %span.fullscreen-on{'data-target':'section-%group_key%-6'}
+        .section-content
+            / settings_block
+            %p.after-card-title.font-slab
+                Всего элементов в группе:
+                %b %elements_count%.
+            / elements_repeat
+            .section
+                .section-title.font-slab %element_id%
+                / keyword_element_switch
+                %ul.browser-default
+                    %li Элемент настроек не имеет.
+                / /keyword_element_switch
+
+                / wordstat_element_switch
+                %ul.browser-default
+                    %li Регионы: %regions_text%.
+                    %li Тип частотности: %frequency_type_marker% %frequency_type%. Устройства: %frequency_db%.
+                / /wordstat_element_switch
+
+                /yandex_element_switch
+                %ul.browser-default
+                    %li %use_yandex% %use_yandex_xml% %use_xmlproxy% %use_xmlriver% %parse_direct% %find_direct%
+                    %li Регион: %region_text%.
+                    %li Результатов на странице: %page_results%; Проверка до %check_until% позиции; Домен Яндекса: %yandex_domain%.
+                / /yandex_element_switch
+
+                / google_element_switch
+                %ul.browser-default
+                    %li %use_google% %use_xmlriver% %parse_ads% %find_ads%
+                    %li Регион: %region_text%.
+                    %li Результатов на странице: %page_results%; Проверка до %check_until% позиции; Домен Google: %google_domain%.
+                / /google_element_switch
+
+                / mail_element_switch
+                %ul.browser-default
+                    %li Проверка до %check_until% позиции.
+                / /mail_element_switch
+
+                / searchengine_element_switch
+                %ul.browser-default
+                    %li Браузер: %browser_name% %browser_os%; Язык: %browser_accept_language%; Регион прокси: %proxy_region%.
+                / site_domains_block
+                .section-subheader.font-slab Домены сайта (%site_domains_size%)
+                %table.highlight.responsive-table
+                    %thead
+                        %tr
+                            %th Домен
+                            %th Поддомены
+                            %th Целевая страница
+                            %th Тип совпадения
+                    %tbody
+                        / site_domains_repeat
+                        %tr
+                            %td %domain%
+                            %td
+                                %span{'class':'%subdomains_class%'} ✔
+                            %td %target_url%
+                            %td %target_type%
+                        / /site_domains_repeat
+                / /site_domains_block
+                / clusterisation_block
+                .section-subheader Настройки кластеризации
+                %ul.browser-default
+                    %li Степень схожести: %threshold%
+                    %li Объединение кластеров: %combine_clusters%
+                    %li Порядок кластерных тестов: %random_tests%
+                    %li Максимальное число кластерных тестов: %max_tests%
+                / /clusterisation_block
+                / /searchengine_element_switch
+            .divider
+            / /elements_repeat
+            / /settings_block
+/ /if_settings_block
+/ /standard_view_block settings

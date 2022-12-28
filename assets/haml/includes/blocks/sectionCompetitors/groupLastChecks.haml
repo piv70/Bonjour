@@ -1,0 +1,25 @@
+- if file == 'index'
+    / group_last_checks_block competitors
+- else
+    / group_and_sub_last_checks_block competitors
+.last-checks-table.hide
+    %table.highlight.responsive-table
+        / se_elements_repeat competitors
+        / competitors_block
+        %thead
+            %tr
+                %th.font-slab{'colspan':'%competitors_headers%'}
+                    %b %se_element_id%:
+                    показано до
+                    %b %competitors_output_size% сайтов конкурентов.
+            %tr
+                / competitors_headers_repeat
+                %th %header_name%
+                / /competitors_headers_repeat
+        = Haml::Engine.new(File.read('includes/blocks/sectionCompetitors/tbody.haml')).render
+        / /competitors_block
+        / /se_elements_repeat competitors
+- if file == 'index'
+    / /group_last_checks_block competitors
+- else
+    / /group_and_sub_last_checks_block competitors

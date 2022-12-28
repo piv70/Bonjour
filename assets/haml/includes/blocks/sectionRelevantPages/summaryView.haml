@@ -1,0 +1,16 @@
+/ summary_view_block relevant_pages
+.main-table.summary-table
+    / relevant_pages_block
+    %p.after-card-title.font-slab
+        Таблица содержит
+        %b %relevant_pages_size% строк.
+    %table.highlight.responsive-table
+        %thead
+            %tr
+                / relevant_pages_headers_repeat
+                %th %header_name%
+                / /relevant_pages_headers_repeat
+                %th Релевантная страница
+        = Haml::Engine.new(File.read('includes/blocks/sectionRelevantPages/tbody.haml')).render
+    / /relevant_pages_block
+/ /summary_view_block relevant_pages

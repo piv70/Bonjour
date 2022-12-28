@@ -1,0 +1,12 @@
+%tbody
+    / rates_rows_repeat
+    %tr
+        %td %rate%
+        / rates_row_cells_repeat
+        %td
+            / rates_values_repeat
+            %span{'class':'%value_dynamics_class%'} %value%
+            &nbsp;
+            / /rates_values_repeat
+        / /rates_row_cells_repeat
+    / /rates_rows_repeat

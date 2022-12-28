@@ -1,0 +1,13 @@
+/ standard_view_block rates
+.main-table.standard-table
+    / rates_block
+    %table.highlight.responsive-table
+        %thead
+            %tr
+                %th Показатель
+                / rates_headers_repeat
+                %th %header_name%
+                / /rates_headers_repeat
+        = Haml::Engine.new(File.read('includes/blocks/sectionRates/tbody.haml')).render
+    / /rates_block
+/ /standard_view_block rates

@@ -1,0 +1,24 @@
+- if file == 'index'
+    / group_last_checks_block rates
+- else
+    / group_and_sub_last_checks_block rates
+.last-checks-table.hide
+    %table.highlight.responsive-table
+        / se_elements_repeat rates
+        / rates_block
+        %thead
+            %tr
+                %th.font-slab{'colspan':'%rates_headers%'}
+                    %b %se_element_id%
+            %tr
+                %th Показатель
+                / rates_headers_repeat
+                %th %header_name%
+                / /rates_headers_repeat
+        = Haml::Engine.new(File.read('includes/blocks/sectionRates/tbody.haml')).render
+        / /rates_block
+        / /se_elements_repeat rates
+- if file == 'index'
+    / /group_last_checks_block rates
+- else
+    / /group_and_sub_last_checks_block rates

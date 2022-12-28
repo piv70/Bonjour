@@ -1,0 +1,40 @@
+- if file == 'index'
+    / group_diagrams_block rates
+- else
+    / group_and_sub_diagrams_block rates
+.diagrams.hide
+    / se_elements_repeat rates
+    .section-subheader.font-slab %se_element_id%
+    .row
+        / dynamics_graph_block
+        .col.s12.l4
+            .card.hoverable
+                .card-image
+                    %img.responsive-img.materialboxed{'src':'img/%filename%',
+                        'alt':'Динамика позиций', 'data':{'caption':'Динамика позиций'}}
+                .card-content
+                    %p.font-slab Динамика позиций
+        / /dynamics_graph_block
+        / average_positions_graph_block
+        .col.s12.l4
+            .card.hoverable
+                .card-image
+                    %img.responsive-img.materialboxed{'src':'img/%filename%',
+                        'alt':'Средние позиции', 'data':{'caption':'Средние позиции'}}
+                .card-content
+                    %p.font-slab Средние позиции
+        / /average_positions_graph_block
+        / visibility_graph_block
+        .col.s12.l4
+            .card.hoverable
+                .card-image
+                    %img.responsive-img.materialboxed{'src':'img/%filename%',
+                        'alt':'Общая видимость', 'data':{'caption':'Общая видимость'}}
+                .card-content
+                    %p.font-slab Общая видимость
+        / /visibility_graph_block
+    / /se_elements_repeat rates
+- if file == 'index'
+    / /group_diagrams_block rates
+- else
+    / /group_and_sub_diagrams_block rates

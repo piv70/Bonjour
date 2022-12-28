@@ -1,0 +1,24 @@
+- if file == 'index'
+    / group_last_checks_block tops
+- else
+    / group_and_sub_last_checks_block tops
+.last-checks-table.hide
+    %table.highlight.responsive-table
+        / se_elements_repeat tops
+        / tops_block
+        %thead
+            %tr
+                %th.font-slab{'colspan':'%tops_headers%'}
+                    %b %se_element_id%
+            %tr
+                %th Топ
+                / tops_headers_repeat
+                %th %header_name%
+                / /tops_headers_repeat
+        = Haml::Engine.new(File.read('includes/blocks/sectionTops/tbody.haml')).render
+        / /tops_block
+        / /se_elements_repeat tops
+- if file == 'index'
+    / /group_last_checks_block tops
+- else
+    / /group_and_sub_last_checks_block tops
